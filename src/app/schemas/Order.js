@@ -1,51 +1,22 @@
 import mongoose from 'mongoose';
 
 const OrderSchema = new mongoose.Schema({
-  id: { 
-    type: String, 
-    required: true 
- },
- name: { 
-    type: String, 
-    required: true 
- },
- products: [
+  user: {
+    id: String,
+    name: String,
+  },
+  products: [
     {
-        id: { 
-            type: Number, 
-            required: true 
-        },
-        name: { 
-            type: String, 
-            required: true 
-        },
-        price: { 
-            type: Number, 
-            required: true 
-        },
-        category: {
-            type: String, 
-            required: true 
-        },
-        url: { 
-            type: String, 
-            required: true 
-        },
-        quantity: { 
-            type: Number, 
-            required: true 
-        },
-    },
- ],
-  status: { 
-    type: String, 
-    required: true
- },
-
-}, 
-    { 
-        timestamps: true 
+      id: Number,
+      name: String,
+      category: String,
+      price: Number,
+      url: String,
+      quantity: Number,
     }
-);
+  ]
+}, {
+  timestamps: true,
+});
 
 export default mongoose.model('Order', OrderSchema);
